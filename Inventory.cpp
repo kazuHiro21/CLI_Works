@@ -88,6 +88,35 @@ void Inventory::printInventory() const {
     cout << "\n";
 }
 
+bool storeItem() {
+    if ((int)items.size() >= MAX_SLOTS) {
+        cout << "\n Invetory is currently full storage! Please Dispose or Disarm something first \n";
+        return false;
+    }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max()), '\n';
+
+    std::string name, desc, catInput;
+    int qty;
+
+    cout << "\n----ADD ITEM-----------------------------\n";
+    cout << "Item name         : "getline(cin, name);
+    if(name.empty()) {cout << " Name cannot be empty!\n"; return false; }
+
+    cout << " Category\n"
+         << " (weapon/food/loot/armor/misc/potion) : ";
+    getline(cin, catInput);
+
+    std::cout << "  Quantity (1-" << MAX_STACK << ")  : ";
+        std::cin >> qty;
+        if (std::cin.fail() || qty < 1 || qty > MAX_STACK) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "  ✗ Invalid quantity.\n";
+            return false;
+
+}
+
+}
 int main() {
     cout << "Ongoing Works!!! thank you." << endl;
     return 0;
