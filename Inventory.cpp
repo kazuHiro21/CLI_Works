@@ -213,8 +213,6 @@ private:
 };
 
 int main() {
-    cout << "Ongoing Works!!! thank you.\n";
-    cout << "This is a illustration of a simple inventory in a system game.\n";
     Inventory inventory;
     inventory.run();
     return 0;
